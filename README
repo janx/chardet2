@@ -1,0 +1,12 @@
+Usage:
+
+irb(main):001:0> require 'rubygems'
+=> true
+irb(main):002:0> require 'UniversalDetector'
+=> false
+irb(main):003:0> p UniversalDetector::chardet('hello')
+{"encoding"=>"ascii", "confidence"=>1.0}
+=> nil
+
+
+- Hui (zhengzhengzheng@gmail.com)
