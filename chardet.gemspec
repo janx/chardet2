@@ -1,13 +1,13 @@
 # -*- encoding: utf-8 -*-
+# require File.expand_path('../lib/common_engine/version', __FILE__)
 
 Gem::Specification.new do |s|
   s.name = %q{chardet}
   s.version = "0.9.0"
-
   s.required_rubygems_version = nil if s.respond_to? :required_rubygems_version=
   s.authors = ["Hui"]
   s.autorequire = %q{UniversalDetector}
-  s.cert_chain = nil
+  # s.cert_chain = nil
   s.date = %q{2006-03-28}
   s.email = %q{zhengzhengzheng@gmail.com}  
   s.files = `git ls-files`.split($\)
