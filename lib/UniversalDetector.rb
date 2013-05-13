@@ -72,8 +72,8 @@ module UniversalDetector
         attr_reader :result
     
         def initialize
-            @_highBitDetector = /[\x80-\xFF]/
-            @_escDetector = /\033|~\{/
+            @_highBitDetector = /[\x80-\xFF]/n
+            @_escDetector = /\033|~\{/n
             @_mEscCharSetProber = nil
             @_mCharSetProbers = []
             reset
