@@ -1,8 +1,10 @@
-* About
+About
+=====
 
 This is a ruby 1.9/2.0 compatible version of chardet on http://rubyforge.org/projects/chardet/
 
-* Usage
+Usage
+=====
 
 ```
 irb(main):001:0> require 'rubygems'
@@ -14,6 +16,7 @@ irb(main):003:0> p UniversalDetector::chardet('hello')
 => nil
 ```
 
-* Contributors
+Contributors
+============
 
 [Felipe Tanus](https://github.com/fotanus)
