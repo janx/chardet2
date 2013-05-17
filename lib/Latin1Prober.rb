@@ -30,11 +30,6 @@ require 'UniversalDetector'
 require 'CharSetProber'
 
 module Enumerable
-    def reduce(fn, res)
-        each { |n| res = res.send(fn, n) }
-        res
-    end
-
     def reduceBlock(res)
         each { |n| res = yield(res, n) }
         res
@@ -142,7 +137,7 @@ module UniversalDetector
                 return 0.01
             end
 
-            total = @_mFreqCounter.reduce(:+, 0)
+            total = @_mFreqCounter.reduce(0, :+)
             if total < 0.01
                 confidence = 0.0
             else
