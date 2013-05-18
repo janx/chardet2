@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{chardet2}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.authors = ["Jan Xie", "Felipe Tanus", "Hui"]
   s.autorequire = %q{UniversalDetector}
