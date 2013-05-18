@@ -55,7 +55,7 @@ module  UniversalDetector
         def feed(aBuf)
             aLen = aBuf.length
             for i in 0...aLen
-                codingState = @_mCodingSM.next_state(aBuf[i])
+                codingState = @_mCodingSM.next_state(aBuf.get_byte(i))
                 if codingState == :Error
                     if DEBUG
                         p(get_charset_name() + ' prober hit error at byte ' + i.to_s + '\n')

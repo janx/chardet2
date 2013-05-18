@@ -30,15 +30,20 @@ require "EscCharSetProber"
 require "MBCSGroupProber"
 require "SBCSGroupProber"
 require "Latin1Prober"
+require "string_shim"
 require "singleton"
 
-module UniversalDetector    
-  
+module UniversalDetector
+
     class << self
+        def is18?
+          RUBY_VERSION =~ /^1\.8/
+        end
+
         def encoding(data)
             chardet(data)['encoding']
         end
-        
+
         def chardet(data)
             u = UniversalDetector::Detector.instance
             u.reset()

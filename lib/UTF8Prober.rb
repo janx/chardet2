@@ -52,9 +52,9 @@ module UniversalDetector
         end
 
         def feed(aBuf) 
-            aLen = aBuf.length       
+            aLen = aBuf.length
             for i in 0...aLen
-                codingState = @_mCodingSM.next_state(aBuf[i])                
+                codingState = @_mCodingSM.next_state(aBuf.get_byte(i))
                 if codingState == :Error
                     @_mState = :NotMe
                     break
