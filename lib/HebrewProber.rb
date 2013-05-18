@@ -224,7 +224,7 @@ module  UniversalDetector
 
             aBuf = filter_high_bit_only(aBuf)
 
-            for cur in aBuf
+            aBuf.each_char do |cur|
                 if cur == ' '
                     # We stand on a space - a word just ended
                     if @_mBeforePrev != ' '

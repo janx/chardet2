@@ -145,7 +145,7 @@ module UniversalDetector
             # this character will simply our logic and improve performance.
             i = @_mNeedToSkipCharNum
             while i < aLen
-                order, charLen = get_order(aBuf[i..i+2])
+                order, charLen = get_order(aBuf[i..i+2].to_bytes)
                 i += charLen
                 if i > aLen
                     @_mNeedToSkipCharNum = i - aLen
@@ -195,7 +195,7 @@ module UniversalDetector
 
             # return its order if it is hiragana
             if aStr.length > 1
-                if (aStr[0] == '\202') and \
+                if (aStr[0] == 0x82) and \
                    (aStr[1] >= 0x9F) and \
                    (aStr[1] <= 0xF1)
                     return aStr[1] - 0x9F, charLen
@@ -210,7 +210,6 @@ module UniversalDetector
         def get_order(aStr)
             unless aStr then return -1, 1 end
             # find out current char's byte length
-            aStr = aStr.to_s
             if (aStr[0] == 0x8E) or ((aStr[0] >= 0xA1) and (aStr[0] <= 0xFE))
                 charLen = 2
             elsif aStr[0] == 0x8F

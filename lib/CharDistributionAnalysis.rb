@@ -58,7 +58,9 @@ module  UniversalDetector
             #"""feed a character with known length"""
             if aCharLen == 2
                 # we only care about 2-bytes character in our distribution analysis
-                order = get_order(aStr)
+                b1 = aStr.get_byte(0)
+                b2 = aStr.get_byte(1)
+                order = get_order([b1, b2])
             else
                 order = -1
             end

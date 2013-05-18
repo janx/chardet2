@@ -75,7 +75,7 @@ module UniversalDetector
             end                        
             
             for i in 0...aLen
-                c = aBuf[i]
+                c = aBuf.get_byte(i)
                 order = @_mModel['charToOrderMap'][c]
                 if order < SYMBOL_CAT_ORDER
                     @_mTotalChar += 1

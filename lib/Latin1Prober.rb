@@ -118,8 +118,8 @@ module UniversalDetector
 
         def feed(aBuf)
             aBuf = filter_with_english_letters(aBuf)
-            for c in aBuf
-                charClass = Latin1_CharToClass[c[0]]
+            aBuf.each_char do |c|
+                charClass = Latin1_CharToClass[c.get_byte(0)]
                 freq = Latin1ClassModel[(@_mLastCharClass * CLASS_NUM) + charClass]
                 if freq == 0
                     @_mState = :NotMe
