@@ -198,7 +198,7 @@ module UniversalDetector
                 if (aStr[0] == '\202') and \
                    (aStr[1] >= 0x9F) and \
                    (aStr[1] <= 0xF1)
-                    return ord(aStr[1]) - 0x9F, charLen
+                    return aStr[1] - 0x9F, charLen
                 end
             end
 
@@ -224,7 +224,7 @@ module UniversalDetector
                 if (aStr[0] == 0xA4) and \
                    (aStr[1] >= 0xA1) and \
                    (aStr[1] <= 0xF3)
-                    return aStr[1][0] - 0xA1, charLen
+                    return aStr[1] - 0xA1, charLen
                 end
             end
 
