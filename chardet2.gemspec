@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.date = %q{2013-05-17}
   s.email = ["jan.h.xie@gmail.com"]
   s.files = Dir["{lib}/**/*"] + ["COPYING", "README.markdown"]
-  s.homepage = %q{https://github.com/janx/chardet}
+  s.homepage = %q{https://github.com/janx/chardet2}
   s.require_paths = ["lib"]
   s.summary = %q{Character encoding auto-detection in Ruby, compatible with 1.9/2.0. Base on Mark Pilgrim's Python port and Hui's ruby port.}
 end
