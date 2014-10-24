@@ -14,12 +14,12 @@
 # modify it under the terms of the GNU Lesser General Public
 # License as published by the Free Software Foundation; either
 # version 2.1 of the License, or (at your option) any later version.
-# 
+#
 # This library is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 # Lesser General Public License for more details.
-# 
+#
 # You should have received a copy of the GNU Lesser General Public
 # License along with this library; if not, write to the Free Software
 # Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA
@@ -36,10 +36,10 @@ module  UniversalDetector
         def initialize
             super
             @_mCodingSM = [ \
-                CodingStateMachine(HZSMModel),
-                CodingStateMachine(ISO2022CNSMModel),
-                CodingStateMachine(ISO2022JPSMModel),
-                CodingStateMachine(ISO2022KRSMModel)
+                CodingStateMachine.new(HZSMModel),
+                CodingStateMachine.new(ISO2022CNSMModel),
+                CodingStateMachine.new(ISO2022JPSMModel),
+                CodingStateMachine.new(ISO2022KRSMModel)
                 ]
             reset()
         end
@@ -47,7 +47,7 @@ module  UniversalDetector
         def reset
             super
             for codingSM in @_mCodingSM
-                unless codingSM then continue end
+                next if codingSM.nil?
                 codingSM.active = true
                 codingSM.reset()
             end
@@ -68,10 +68,10 @@ module  UniversalDetector
         end
 
         def feed(aBuf)
-            for c in aBuf
+            aBuf.each_byte do |c|
                 for codingSM in @_mCodingSM
-                    unless codingSM then continue end
-                    unless codingSM.active then continue end
+                    next if codingSM.nil?
+                    next unless codingSM.active
                     codingState = codingSM.next_state(c)
                     if codingState == :Error
                         codingSM.active = false
